@@ -1,10 +1,8 @@
 package ch.flopes.spring.services.impl;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import ch.flopes.spring.models.impl.Topic;
@@ -12,11 +10,6 @@ import ch.flopes.spring.services.TopicService;
 
 @Service
 public class TopicServiceImpl implements TopicService {
-
-/*	private List<Topic> topics = new ArrayList<Topic>(Arrays.asList(
-			new Topic("Spring", "A first app introduction to spring boot"),
-			new Topic("Learning", "Learning many ways of developing apps")
-	));*/
 	
 	public TopicServiceImpl() { }
 
@@ -36,4 +29,11 @@ public class TopicServiceImpl implements TopicService {
 	public void addTopic(Topic topic) {
 		// this.topics.add(topic);
 	}
+
+	@Override
+	@Profile({"dev", "intg"})
+	public void loadTopics(List<Topic> topics) {
+		// TODO Auto-generated method stub
+	}
+	
 }
