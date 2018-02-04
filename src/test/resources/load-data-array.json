@@ -1,0 +1,26 @@
+{
+	"data" : [{
+		"name": "Spring",
+		"description": "A Spring-microservice introduction.",
+		"timestamp": "20171001"
+	}, {
+		"name": "Discover",
+		"description": "Going to dive deeply into Spring Boot.",
+		"timestamp": "20171015"
+	}, {
+		"name": "Learn",
+		"description": "An ongoing process of Life.",
+		"timestamp": "20170915"
+	}, {
+		"name": "Achieve",
+		"description": "Reaching a goal.",
+		"timestamp": "20171009"
+	}, {
+		"name": "Experience",
+		"description": "Discovering new technologies, Learning from mistakes, Achieving goals, those are some of the building blocks of Experience.",
+		"timestamp": "20180101"
+	}, {
+		"name": "Success & Maslow",
+		"description": "Simply because we are humans after all."
+	}] 
+}

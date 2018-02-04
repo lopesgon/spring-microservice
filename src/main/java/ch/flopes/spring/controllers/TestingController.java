@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/")
-@Profile({"dev", "intg"})
+@Profile({"dev"})
 public class TestingController {
 
 	@GetMapping

@@ -1,11 +1,108 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title>Spring-Microservice</title>
-	</head>
-	<body>
-		<h1>Spring Microservice</h1>
-		<h2>Testing interface</h2>
-	</body>
+<head>
+<meta charset="UTF-8">
+<title>Spring-Microservice</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"
+	integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy"
+	crossorigin="anonymous">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"
+	integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4"
+	crossorigin="anonymous"></script>
+	<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"
+	crossorigin="anonymous"></script>
+
+<style>
+.full {
+	width: 100vw;
+	min-height: 100vh;
+}
+</style>
+</head>
+<body>
+	<div class="jumbotron">
+		<h1 class="display-4">Spring Microservice</h1>
+		<p class="lead">A simple testing interface</p>
+		<hr class="my-4">
+		<p>Click on buttons to reach desired section.</p>
+		<div class="container">
+			<div class="row">
+				<p class="lead col-sm">
+					<a class="btn btn-primary btn-lg btn-block" href="#crud"
+						role="button">CRUD</a>
+				</p>
+				<p class="lead col-sm">
+					<a class="btn btn-primary btn-lg btn-block" href="#loader"
+						role="button">Data Loader</a>
+				</p>
+			</div>
+		</div>
+	</div>
+	<div id="crud" class="container full">
+		<h1>CRUD Interface</h1>
+		<div class="row">
+			<div class="col-sm">TODO - Search form</div>
+			<div class="col-sm">TODO - Update form</div>
+		</div>
+	</div>
+	<div id="loader" class="container full">
+		<h1>Data Loader Interface</h1>
+		<div class="row">
+			<div class="col-sm">
+				<form>
+					<div class="form-group">
+						<label for="text-loader">Insert data to load as JSON:</label>
+						<textarea class="form-control" id="text-loader" rows="10"></textarea>
+					</div>
+					<button id="btn-text" type="submit" class="btn btn-primary">Submit</button>
+				</form>
+			</div>
+			<div class="col-sm">
+				<form>
+					<div class="form-group">
+						<label for="file-loader">Select data to load as JSON file:</label>
+						<input type="file" class="form-control-file" id="file-loader">
+					</div>
+					<button id="btn-file" type="submit" class="btn btn-primary">Submit</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script>
+		$("#btn-file").click(function(){
+			console.log($("#file-loader").files);
+			$.ajax({
+				url: "localhost:8080",
+				type: "post",
+				dataType: "json",
+				data: $("#file-loader"),
+				success: function(data) {
+					console.log(data);
+				},
+				error: function(data) {
+					console.log(data);
+				}
+			});
+		});
+		
+		$("#btn-text").click(function(){
+			$.ajax({
+				url: "http://localhost:8080/topics/load-data",
+				type: "post",
+				dataType: "json",
+				data: $("#text-loader"),
+				success: function(data) {
+					console.log(data);
+				},
+				error: function(data) {
+					console.log(data);
+				}
+			});
+		});
+		
+	</script>
+</body>
 </html>
